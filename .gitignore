@@ -3,3 +3,4 @@ reference/
 out/
 __pycache__/
 *.pyc
+PROGRESS.md
