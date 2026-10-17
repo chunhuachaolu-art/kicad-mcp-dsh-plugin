@@ -43,7 +43,11 @@ dsh web
 
 ## Troubleshooting
 
-- **Tools missing / "kicad-mcp-pro" not found** — run `kicad-mcp-pro --help` in the same shell you launch dsh from; if that fails, `pip install kicad-mcp-pro` (needs Python >= 3.13) or set `KICAD_MCP_CMD` to the full executable path.
+- **Tools listed by `--dump-config` but missing in the live session** — `dump-config` prints the composed config tree; it does **not** prove the plugin row actually loads. At startup dsh enforces plugin dependency versions and disables incompatible rows, logging e.g. `dsh: disabling profile plugin row "mcp-kicad": Plugin @deepseek-ai/dsh-mcp-client@… is incompatible with dsh <version>`. Since v0.1.1 this plugin pins `@deepseek-ai/dsh-mcp-client@0.2.1-rc.2` (matching dsh 0.2.1-rc.x), so the gate should not trigger; on version mismatches you can still allow the pinned pair explicitly:
+  ```bash
+  dsh plugin --profile web allow-version "@deepseek-ai/dsh-mcp-client@0.2.1-rc.2" --dsh-version 0.2.1-rc.2 --accept-risk
+  ```
+- **`kicad-mcp-pro` not found** — run `kicad-mcp-pro --help` in the same shell you launch dsh from; if that fails, `pip install kicad-mcp-pro` (needs Python >= 3.13) or set `KICAD_MCP_CMD` to the full executable path.
 - **DRC/ERC report "kicad-cli not found"** — set `KICAD_MCP_KICAD_CLI` to your `kicad-cli` executable.
 - **Board-interactive tools error out** — start the KiCad application and enable its socket API (Preferences → Session → socket); file-based tools work headless regardless.
 
