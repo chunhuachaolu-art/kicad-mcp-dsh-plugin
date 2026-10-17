@@ -1,0 +1,6 @@
+kicad-mcp-dsh-plugin is a thin distribution wrapper. All design-tool functionality is provided by:
+
+- kicad-mcp-pro (https://github.com/oaslananka/kicad-mcp-pro) — MIT License, Copyright oaslananka
+- @deepseek-ai/dsh-mcp-client (npm) — part of the DeepSeek Harness ecosystem, MIT
+
+This plugin contains no code from either project; it registers the MCP server and documents configuration.

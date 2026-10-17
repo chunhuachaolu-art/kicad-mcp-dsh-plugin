@@ -1,0 +1,20 @@
+- insert:
+    - id: "mcp-kicad"
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: "kicad"
+        transport: "stdio"
+        command: !!js process.env.KICAD_MCP_CMD ?? "kicad-mcp-pro"
+        env:
+          PYTHONUTF8: "1"
+          PYTHONUNBUFFERED: "1"
+          KICAD_MCP_PROFILE: !!js process.env.KICAD_MCP_PROFILE ?? "default"
+          KICAD_MCP_LOG_LEVEL: !!js process.env.KICAD_MCP_LOG_LEVEL ?? "warning"
+          KICAD_MCP_KICAD_CLI: !!js process.env.KICAD_MCP_KICAD_CLI ?? ""
+        failOnStartupError: false
+        toolCallTimeoutMs: 300000
+        reconnect:
+          enabled: true
+          initialDelayMs: 500
+          maxDelayMs: 30000
+          maxAttempts: 10

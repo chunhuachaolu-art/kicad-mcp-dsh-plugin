@@ -1,0 +1,46 @@
+{
+  "name": "kicad-mcp-dsh-plugin",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness plugin exposing kicad-mcp-pro: let dsh agents inspect KiCad schematics/PCBs, run ERC/DRC, export BOM and fabrication outputs as mcp__kicad__* tools.",
+  "license": "MIT",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek",
+    "deepseek-harness",
+    "mcp",
+    "kicad",
+    "pcb",
+    "eda",
+    "electronics",
+    "drc",
+    "erc",
+    "bom"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chunhuachaolu-art/kicad-mcp-dsh-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chunhuachaolu-art/kicad-mcp-dsh-plugin/issues"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-mcp-client": "0.1.1-rc.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
